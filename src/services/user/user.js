@@ -1,4 +1,4 @@
-import { Students } from "../../model/students";
+import { Students } from "../../model/students/index.js";
 
 export const getUser = async (username, password) => {
   const user = await Students.findOne({

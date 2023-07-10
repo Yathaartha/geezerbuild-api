@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
-import { sequelize } from "../../database/db";
-import { Assignments } from "../assignments";
+import { sequelize } from "../../database/db.js";
+import { Assignments } from "../assignments/index.js";
 
 export const Assignment = sequelize.define("Assignment", {
   id: {

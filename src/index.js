@@ -3,6 +3,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import { sequelize } from "./database/db.js";
 import * as dotenv from "dotenv";
+import authRoutes from "./routes/auth.js";
+import assignmentRoutes from "./routes/assignments.js";
 
 const PORT = process.env.PORT || 7000;
 
@@ -18,9 +20,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// app.use("/admin", authRoutes);
+app.use("/auth", authRoutes);
 
-// app.use("/park", parkRoutes);
+app.use("/assignments", assignmentRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

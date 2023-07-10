@@ -7,11 +7,15 @@ export const getAssignments = async () => {
   return assignments;
 };
 
-export const insertAssignment = async (assignment) => {
-  await Assignments.create(assignment);
+export const insertAssignment = async (studentId, assignmentId, submission) => {
+  await Assignments.create({
+    studentId,
+    assignmentId,
+    file: submission,
+  });
 };
 
-export const removeAssignment = async (id) => {
+export const removeAssignment = async (studentId, assignmentId) => {
   await Assignments.destroy({
     where: {
       id: id,
