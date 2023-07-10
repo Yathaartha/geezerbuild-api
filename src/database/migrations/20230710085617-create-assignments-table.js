@@ -28,7 +28,7 @@ module.exports = {
             key: "id",
           },
         },
-        file: { type: Sequelize.STRING, allowNull: false },
+        file: { type: Sequelize.BLOB, allowNull: false },
       },
       {
         timestamps: false,
