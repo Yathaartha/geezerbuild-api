@@ -1,5 +1,6 @@
 import {
   insertAssignment,
+  getAssignmentsByStudentId,
   removeAssignment,
   getAssignments,
 } from "../services/assignments/index.js";
@@ -15,14 +16,17 @@ export const getAllAssignments = async (req, res) => {
 };
 
 export const getSubmittedAssignments = async (req, res) => {
-  const { studentId } = req.body;
+  const { studentId } = req.query;
+  if (studentId) {
+    // Handle the case when the studentId parameter is provided
+    // Example response: Return assignments for a specific student
+    const response = await getAssignmentsByStudentId(studentId);
 
-  try {
-    const response = await getSubmittedAssignments(studentId);
-
-    res.status(200).json(response);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.json({ response });
+  } else {
+    // Handle the case when the studentId parameter is not provided
+    // Example response: Return all assignments
+    res.json({ message: "List of all assignments" });
   }
 };
 

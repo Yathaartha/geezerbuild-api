@@ -7,10 +7,10 @@ export const getAssignments = async () => {
   return assignments;
 };
 
-export const getSubmittedAssignments = async (studentId) => {
+export const getAssignmentsByStudentId = async (studentId) => {
   const assignments = await Assignments.findAll({
     where: {
-      studentId: studentId,
+      userId: studentId,
     },
   });
 
