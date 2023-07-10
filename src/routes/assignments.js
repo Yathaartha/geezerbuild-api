@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-  getAssignments,
+  getAllAssignments,
   getSubmittedAssignments,
   removeSubmission,
   submitAssignment,
@@ -8,7 +8,7 @@ import {
 
 const router = Router();
 
-router.get("/list", getAssignments);
+router.get("/list", getAllAssignments);
 router.get("/submissions", getSubmittedAssignments);
 router.post("/create", submitAssignment);
 router.post("/remove", removeSubmission);

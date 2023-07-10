@@ -1,5 +1,5 @@
-import { Assignment } from "../../model/assignment/index.js";
-import { Assignments } from "../../model/assignments/index.js";
+import { Assignment } from "../../models/assignment/index.js";
+import { Assignments } from "../../models/assignments/index.js";
 
 export const getAssignments = async () => {
   const assignments = await Assignment.findAll();
@@ -13,6 +13,8 @@ export const getSubmittedAssignments = async (studentId) => {
       studentId: studentId,
     },
   });
+
+  return assignments;
 };
 
 export const insertAssignment = async (studentId, assignmentId, submission) => {

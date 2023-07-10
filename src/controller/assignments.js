@@ -1,9 +1,10 @@
 import {
   insertAssignment,
   removeAssignment,
+  getAssignments,
 } from "../services/assignments/index.js";
 
-export const getAssignments = async (req, res) => {
+export const getAllAssignments = async (req, res) => {
   try {
     const response = await getAssignments();
 
