@@ -11,6 +11,6 @@ const router = Router();
 router.get("/list", getAllAssignments);
 router.get("/submissions", getSubmittedAssignments);
 router.post("/create", submitAssignment);
-router.post("/remove", removeSubmission);
+router.delete("/remove", removeSubmission);
 
 export default router;

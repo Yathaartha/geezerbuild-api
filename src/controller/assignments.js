@@ -22,7 +22,7 @@ export const getSubmittedAssignments = async (req, res) => {
     // Example response: Return assignments for a specific student
     const response = await getAssignmentsByStudentId(studentId);
 
-    res.json({ response });
+    res.json([...response]);
   } else {
     // Handle the case when the studentId parameter is not provided
     // Example response: Return all assignments
@@ -31,28 +31,24 @@ export const getSubmittedAssignments = async (req, res) => {
 };
 
 export const submitAssignment = async (req, res) => {
-  const { studentId, assignmentId, submission } = req.body;
+  const { userId, assignmentId, submission } = req.body;
 
   try {
-    const response = await insertAssignment(
-      studentId,
-      assignmentId,
-      submission
-    );
+    const response = await insertAssignment(userId, assignmentId, submission);
 
-    res.status(200).json(response);
+    res.status(200).json({ message: response });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
 export const removeSubmission = async (req, res) => {
-  const { assignmentId } = req.body;
+  const { assignmentId } = req.query;
 
   try {
     const response = await removeAssignment(assignmentId);
 
-    res.status(200).json(response);
+    res.status(200).json({ message: response });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
