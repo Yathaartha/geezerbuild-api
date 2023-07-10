@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 import { sequelize } from "../../database/db";
 
-export const Student = sequelize.define("Students", {
+export const Students = sequelize.define("Students", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
