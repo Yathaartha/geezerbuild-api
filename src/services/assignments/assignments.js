@@ -1,8 +1,15 @@
+import { Op } from "sequelize";
 import { Assignment } from "../../models/assignment/index.js";
 import { Assignments } from "../../models/assignments/index.js";
 
 export const getAssignments = async () => {
-  const assignments = await Assignment.findAll();
+  const assignments = await Assignment.findAll({
+    where: {
+      dueDate: {
+        [Op.gte]: new Date(),
+      },
+    },
+  });
 
   return assignments;
 };
