@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize";
+import { DataTypes, Sequelize } from "sequelize";
 import { sequelize } from "../../database/db.js";
 
 export const Assignments = sequelize.define("Assignments", {
@@ -25,7 +25,7 @@ export const Assignments = sequelize.define("Assignments", {
     },
   },
   file: {
-    type: Sequelize.STRING,
+    type: DataTypes.BLOB,
     allowNull: false,
   },
 });
