@@ -1,4 +1,7 @@
-import { insertAssignment, removeAssignment } from "../services/assignments";
+import {
+  insertAssignment,
+  removeAssignment,
+} from "../services/assignments/index.js";
 
 export const getAssignments = async (req, res) => {
   try {
