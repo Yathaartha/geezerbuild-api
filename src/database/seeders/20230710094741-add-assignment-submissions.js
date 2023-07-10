@@ -36,14 +36,10 @@ module.exports = {
       },
     ];
 
-    await queryInterface.bulkInsert(
-      "AssignmentSubmissions",
-      assignmentSubmissions,
-      {}
-    );
+    await queryInterface.bulkInsert("Assignments", assignmentSubmissions, {});
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete("AssignmentSubmissions", null, {});
+    await queryInterface.bulkDelete("Assignments", null, {});
   },
 };
